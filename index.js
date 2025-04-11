@@ -45,8 +45,14 @@ const getGPTReply = async (userInput) => {
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--single-process"
+    ]
   });
 
   const page = await browser.newPage();
@@ -65,8 +71,18 @@ const getGPTReply = async (userInput) => {
     waitUntil: "networkidle2",
   });
 
-  await page.waitForSelector('[contenteditable="true"]');
-  console.log("🤖 Đang theo dõi nhóm chat...");
+  console.log("⌛ Đang chờ khung nhập tin nhắn...");
+
+  try {
+    await page.waitForSelector('[contenteditable="true"]', { timeout: 60000 });
+    console.log("📥 Đã tìm thấy khung nhập tin nhắn!");
+  } catch (err) {
+    console.error("❌ Không tìm thấy khung nhập, bot dừng lại.");
+    await browser.close();
+    return;
+  }
+
+  console.log("🤖 Bot đang theo dõi nhóm chat...");
 
   let lastProcessedText = "";
 
@@ -74,7 +90,8 @@ const getGPTReply = async (userInput) => {
     try {
       const messages = await page.$$eval(
         'div[role="row"]',
-        (rows) => rows.map((row) => row.innerText.trim()).filter(Boolean)
+        (rows) =>
+          rows.map((row) => row.innerText.trim()).filter(Boolean)
       );
 
       const lastMessage = messages[messages.length - 1];
@@ -93,7 +110,7 @@ const getGPTReply = async (userInput) => {
         let reply = "";
 
         if (command === "!help") {
-          reply = `🤖 Các lệnh bạn có thể dùng:\n\n• !help – Danh sách lệnh\n• !info – Giới thiệu nhóm\n• !rule – Nội quy nhóm\n• !admin – Gọi admin\n👉 Hoặc gọi \"${BOT_NAME} [câu hỏi]\" để dùng AI!`;
+          reply = `🤖 Các lệnh bạn có thể dùng:\n\n• !help – Danh sách lệnh\n• !info – Giới thiệu nhóm\n• !rule – Nội quy nhóm\n• !admin – Gọi admin\n👉 Hoặc gọi "${BOT_NAME} [câu hỏi]" để dùng AI!`;
         } else if (command === "!info") {
           reply = `ℹ️ Nhóm này là nơi chia sẻ kiến thức, thảo luận và chill vui vẻ!\nTham gia nhiệt tình nha bạn!`;
         } else if (command === "!rule") {
