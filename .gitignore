@@ -1,0 +1,13 @@
+# node_modules: thư viện cài bằng npm, không cần push
+node_modules/
+
+# dotenv file chứa thông tin nhạy cảm
+.env
+
+# test hoặc file chứa key
+test-api.js
+*.log
+
+# hệ thống (Windows/macOS)
+.DS_Store
+Thumbs.db
