@@ -39,3 +39,7 @@ browser_data/
 # System Files
 .DS_Store
 Thumbs.db
+
+# Additional filters
+*.log
+error_*.png
