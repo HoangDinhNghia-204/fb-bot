@@ -1,13 +1,24 @@
-# node_modules: thư viện cài bằng npm, không cần push
+# Dependencies
 node_modules/
 
-# dotenv file chứa thông tin nhạy cảm
+# Environment variables
 .env
 
-# test hoặc file chứa key
-test-api.js
-*.log
+# Browser data
+browser_data/
 
-# hệ thống (Windows/macOS)
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+conversation_history.json
+user_data.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS generated files
 .DS_Store
 Thumbs.db

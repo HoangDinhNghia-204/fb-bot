@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Bot Commands</title>
+    <style>
+        :root {
+            --primary-color: #7289DA;
+            --secondary-color: #43B581;
+            --background-dark: #2C2F33;
+            --background-light: #23272A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #DCDDDE;
+            --text-muted: #72767D;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--background-light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            color: var(--text-primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background-color: #2F3136;
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .command {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #36393F;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .command:hover {
+            background-color: #40444B;
+        }
+
+        .command-name {
+            color: var(--primary-color);
+            font-weight: bold;
+            min-width: 200px;
+            font-size: 1.1em;
+        }
+
+        .command-desc {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-size: 0.9em;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--text-muted);
+            padding: 20px;
+            border-top: 1px solid #40444B;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .command {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .command-name {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .section h2 {
+                font-size: 1.3em;
+            }
+
+            .command-name {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 MINECRAFT BOT</h1>
+            <p>Danh sách các lệnh có sẵn</p>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">🎲</span> Game Commands</h2>
+            <div class="command">
+                <span class="command-name">!mcskin [tên]</span>
+                <span class="command-desc">Xem skin người chơi Minecraft</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!mcmob [tên]</span>
+                <span class="command-desc">Xem thông tin và ảnh mob Minecraft</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!mcblock [tên]</span>
+                <span class="command-desc">Xem thông tin và ảnh block Minecraft</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!mcmeme</span>
+                <span class="command-desc">Xem meme Minecraft ngẫu nhiên</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!mcmusic</span>
+                <span class="command-desc">Nghe nhạc Minecraft ngẫu nhiên của C418</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!tictactoe</span>
+                <span class="command-desc">Bắt đầu game cờ caro</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!tictactoe [1-9]</span>
+                <span class="command-desc">Đánh một nước cờ vào vị trí 1-9</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!quiz</span>
+                <span class="command-desc">Trả lời câu đố Minecraft</span>
+                <div class="note">Bạn có 30 giây để trả lời mỗi câu hỏi</div>
+            </div>
+            <div class="command">
+                <span class="command-name">!roll</span>
+                <span class="command-desc">Tung xúc xắc (1-6)</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!8ball [câu hỏi]</span>
+                <span class="command-desc">Bói toán vui</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">👥</span> Nhóm Commands</h2>
+            <div class="command">
+                <span class="command-name">!info</span>
+                <span class="command-desc">Xem thông tin về cộng đồng Minecraft</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!rule</span>
+                <span class="command-desc">Xem nội quy nhóm</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!rank</span>
+                <span class="command-desc">Xem cấp độ và XP của bạn</span>
+            </div>
+            <div class="command">
+                <span class="command-name">!top</span>
+                <span class="command-desc">Xem bảng xếp hạng thành viên</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">🎵</span> Nhạc & Giải Trí</h2>
+            <div class="command">
+                <span class="command-name">!play [link YouTube]</span>
+                <span class="command-desc">Xem thông tin bài hát từ YouTube</span>
+                <div class="note">Hiển thị tên bài hát, kênh, thời lượng và lượt xem</div>
+            </div>
+            <div class="command">
+                <span class="command-name">!lyrics [tên bài]</span>
+                <span class="command-desc">Tìm thông tin và link bài hát trên Genius</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="emoji">🎨</span> Hình ảnh & Sticker</h2>
+            <div class="command">
+                <span class="command-name">!sticker</span>
+                <span class="command-desc">Tạo sticker từ ảnh được gửi kèm</span>
+                <div class="note">Gửi kèm một ảnh khi sử dụng lệnh này</div>
+            </div>
+            <div class="command">
+                <span class="command-name">!qr [text]</span>
+                <span class="command-desc">Tạo mã QR từ text</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💡 Gõ lệnh bất kỳ để bắt đầu!</p>
+            <p>🔄 Cập nhật lần cuối: 2024</p>
+        </div>
+    </div>
+</body>
+</html> 

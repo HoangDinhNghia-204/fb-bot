@@ -6,13 +6,25 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "axios": "^1.8.4",
+    "cloudinary": "^2.6.0",
     "dotenv": "^16.5.0",
-    "puppeteer": "^24.6.1"
+    "express": "^5.1.0",
+    "genius-lyrics": "^4.4.7",
+    "moment-timezone": "^0.5.48",
+    "node-fetch": "^3.3.2",
+    "puppeteer": "^24.6.1",
+    "qrcode": "^1.5.4",
+    "translate-google": "^1.5.0",
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^4.11.5"
   }
 }
