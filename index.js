@@ -666,9 +666,14 @@ const sendMessage = async (page, message) => {
         }
 
         // Cập nhật XP cho người dùng
-        const levelUpMessage = await updateUserXP(lastMessage.id.split("_")[2]);
-        if (levelUpMessage) {
-          await sendMessage(page, levelUpMessage);
+        const userId = lastMessage.id.split("_")[2];
+        if (userId && !userData.has(userId)) {
+          userData.set(userId, {
+            xp: 0,
+            level: 1,
+            messages: 0
+          });
+          await saveUserData();
         }
 
       } catch (e) {
